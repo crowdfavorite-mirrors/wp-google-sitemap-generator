@@ -49,13 +49,13 @@ class GoogleSitemapGeneratorLoader {
 	function Enable() {
 
 		//Check for 3.0 multisite, NOT supported yet!
-		if((defined('WP_ALLOW_MULTISITE') && WP_ALLOW_MULTISITE) || (function_exists('is_multisite') && is_multisite())) {
-			if(function_exists('is_super_admin') && is_super_admin()) {
-				add_action('admin_notices',  array('GoogleSitemapGeneratorLoader', 'AddMultisiteWarning'));
-			}	
-			
-			return;
-		}
+		// if((defined('WP_ALLOW_MULTISITE') && WP_ALLOW_MULTISITE) || (function_exists('is_multisite') && is_multisite())) {
+		// 	if(function_exists('is_super_admin') && is_super_admin()) {
+		// 		add_action('admin_notices',  array('GoogleSitemapGeneratorLoader', 'AddMultisiteWarning'));
+		// 	}	
+		// 	
+		// 	return;
+		// }
 		
 		//Register the sitemap creator to wordpress...
 		add_action('admin_menu', array('GoogleSitemapGeneratorLoader', 'RegisterAdminPage'));
