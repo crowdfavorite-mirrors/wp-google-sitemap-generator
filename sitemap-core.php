@@ -1,7 +1,7 @@
 <?php
 /*
 
- $Id: sitemap-core.php 541051 2012-05-07 19:33:15Z arnee $
+ $Id: sitemap-core.php 584634 2012-08-12 19:13:40Z arnee $
 
 */
 
@@ -826,15 +826,7 @@ final class GoogleSitemapGenerator {
 	public function Initate() {
 		if(!$this->isInitiated) {
 
-			//Loading language file...
-			//load_plugin_textdomain('sitemap');
-			//Hmm, doesn't work if the plugin file has its own directory.
-			//Let's make it our way... load_plugin_textdomain() searches only in the wp-content/plugins dir.
-			$currentLocale = get_locale();
-			if(!empty($currentLocale)) {
-				$moFile = dirname(__FILE__) . "/lang/sitemap-" . $currentLocale . ".mo";
-				if(@file_exists($moFile) && is_readable($moFile)) load_textdomain('sitemap', $moFile);
-			}
+			load_plugin_textdomain('sitemap',false,dirname( plugin_basename( __FILE__ ) ) .  '/lang');
 
 			$this->freqNames = array(
 				"always" => __("Always", "sitemap"),
@@ -1150,7 +1142,6 @@ final class GoogleSitemapGenerator {
 		$this->options = array();
 		$this->options["sm_b_prio_provider"] = "GoogleSitemapGeneratorPrioByCountProvider"; //Provider for automatic priority calculation
 		$this->options["sm_b_ping"] = true; //Auto ping Google
-		$this->options["sm_b_pingask"] = true; //Auto ping Ask.com
 		$this->options["sm_b_pingmsn"] = true; //Auto ping MSN
 		$this->options["sm_b_memory"] = ''; //Set Memory Limit (e.g. 16M)
 		$this->options["sm_b_time"] = -1; //Set time limit in seconds, 0 for unlimited, -1 for disabled
@@ -1556,7 +1547,7 @@ final class GoogleSitemapGenerator {
 
 		$this->Initate();
 
-		$builders = array('sitemap-builder.php'); //,"sitemap-builder-cpt.php");
+		$builders = array('sitemap-builder.php');
 		foreach($builders AS $b) {
 			$f = trailingslashit(dirname(__FILE__)) . $b;
 			if(file_exists($f)) require_once($f);
@@ -1815,14 +1806,6 @@ final class GoogleSitemapGenerator {
 					"name" => "Google",
 					"url" => "http://www.google.com/webmasters/sitemaps/ping?sitemap=%s",
 					"check" => "successfully"
-				);
-			}
-
-			if($this->GetOption("b_pingask")) {
-				$pings["ask"] = array(
-					"name" => "Ask.com",
-					"url" => "http://submissions.ask.com/ping?sitemap=%s",
-					"check" => "successfully received and added"
 				);
 			}
 

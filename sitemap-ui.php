@@ -1,7 +1,7 @@
 <?php
 /*
 
- $Id: sitemap-ui.php 541051 2012-05-07 19:33:15Z arnee $
+ $Id: sitemap-ui.php 584634 2012-08-12 19:13:40Z arnee $
 
 */
 
@@ -745,11 +745,6 @@ class GoogleSitemapGeneratorUI {
 							<input type="checkbox" id="sm_b_pingmsn" name="sm_b_pingmsn" <?php echo ($this->sg->GetOption("b_pingmsn")==true?"checked=\"checked\"":"") ?> />
 							<label for="sm_b_pingmsn"><?php _e('Notify Bing (formerly MSN Live Search) about updates of your Blog', 'sitemap') ?></label><br />
 							<small><?php echo str_replace("%s",$this->sg->GetRedirectLink('sitemap-lwt'),__('No registration required, but you can join the <a href="%s">Bing Webmaster Tools</a> to check crawling statistics.','sitemap')); ?></small>
-						</li>
-						<li>
-							<input type="checkbox" id="sm_b_pingask" name="sm_b_pingask" <?php echo ($this->sg->GetOption("b_pingask")==true?"checked=\"checked\"":"") ?> />
-							<label for="sm_b_pingask"><?php _e('Notify Ask.com about updates of your Blog', 'sitemap') ?></label><br />
-							<small><?php _e('No registration required.','sitemap'); ?></small>
 						</li>
 						<li>
 							<label for="sm_b_robots">

@@ -1,7 +1,7 @@
 <?php
 
 /*
- $Id: sitemap.php 540315 2012-05-05 18:19:14Z arnee $
+ $Id: sitemap.php 552245 2012-06-02 15:42:51Z arnee $
 
  Google XML Sitemaps Generator for WordPress
  ==============================================================================
@@ -18,11 +18,11 @@
  Plugin Name: Google XML Sitemaps
  Plugin URI: http://www.arnebrachhold.de/redir/sitemap-home/
  Description: This plugin will generate a special XML sitemap which will help search engines like Google, Yahoo, Bing and Ask.com to better index your blog.
- Version: 4.0beta9
+ Version: 4.0beta10
  Author: Arne Brachhold
  Author URI: http://www.arnebrachhold.de/
  Text Domain: sitemap
- Domain Path: /lang/
+ Domain Path: /lang
 
 
  Copyright 2005 - 2012 ARNE BRACHHOLD  (email : himself - arnebrachhold - de)
